@@ -1,0 +1,26 @@
+1 Prototype er sérstakt oobject-oriented-forritun sem leyfir manni að endurnota klasana með t.d að klóna hann.
+Munurinn er að prototype vinnur með objectið en oop vinnur frá objectinu.
+
+2 
+
+A Þá vísa allir Book() hlutir á sama fall og það kemur mjög líklega villa
+
+B Prototype sérgreinir fallið og gerir sína eigin útgáfu til að spara minnið 
+
+function createShip(name,life,speed){
+    this.name = name;
+    this.life = 10;
+    this.speed = 10;
+};
+
+let space_1 = new createShip(["Blackfalcon"],10,7); 
+let space_2 = new createShip(["Omnitrix"],10,8);
+let space_3 = new createShip(["Tie fighter"],10,10);
+
+createShip.prototype.fly= function(){this.speed += 1};
+
+var space_4 = Object.create(space_2);
+space_4.setlife = function(){this.life += 1}; 
+
+var space_5 =Object.create(space_4)
+space_5.setlife = function(){this.life +=1};
